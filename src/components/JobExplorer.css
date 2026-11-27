@@ -1,53 +1,61 @@
-.jx-layout { display: grid; grid-template-columns: 280px 1fr; gap: 16px; padding: 16px; align-items: start; }
-.jx-sidebar { display: flex; flex-direction: column; gap: 16px; }
-.jx-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+/* Eksplorasi Lowongan — tema MagangYuk (#00A5FF) */
+.jx-layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 20px; padding: 16px; align-items: start; }
+.jx-sidebar { order: 2; display: flex; flex-direction: column; gap: 16px; position: sticky; top: 20px; }
+.jx-main { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 
-.jx-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; }
-.jx-panel-title { margin: 0 0 4px; font-size: 15px; }
-.jx-muted { margin: 4px 0; font-size: 12px; color: #64748b; }
-.jx-error-text { margin: 6px 0 0; font-size: 12px; color: #dc2626; }
+.jx-panel { background: #fff; border: 1px solid #e2edf5; border-radius: 18px; padding: 20px; box-shadow: 0 6px 24px rgba(11, 37, 64, 0.06); }
+.jx-panel-title { margin: 0 0 4px; font-size: 16px; font-weight: 800; color: #0b2540; }
+.jx-muted { margin: 4px 0; font-size: 12px; color: #64809a; }
+.jx-error-text { margin: 6px 0 0; font-size: 12px; color: #f43f5e; }
 
-.jx-input { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; background: #fff; }
-.jx-input--grow { flex: 1; min-width: 180px; }
-.jx-btn { padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; cursor: pointer; font-size: 13px; }
-.jx-btn--primary { background: #2563eb; border-color: #2563eb; color: #fff; }
-.jx-btn:disabled { background: #e2e8f0; border-color: #e2e8f0; color: #64748b; cursor: not-allowed; }
+.jx-input { padding: 10px 12px; border: 1px solid #e2edf5; border-radius: 12px; font: inherit; font-size: 14px; background: #fff; color: #0b2540; }
+.jx-input:focus { outline: none; border-color: #00a5ff; box-shadow: 0 0 0 3px #c9ecff; }
+.jx-input--grow { flex: 1; min-width: 200px; }
+.jx-btn { padding: 9px 16px; border: 1px solid #e2edf5; border-radius: 12px; background: #fff; color: #0b2540; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; transition: all 0.15s; }
+.jx-btn:hover { border-color: #00a5ff; color: #0070b8; }
+.jx-btn--primary { background: #00a5ff; border-color: #00a5ff; color: #fff; }
+.jx-btn--primary:hover { background: #0090e0; border-color: #0090e0; color: #fff; }
+.jx-btn:disabled { background: #eef2f7; border-color: #eef2f7; color: #94a3b8; cursor: not-allowed; }
 
-.jx-skill-form { display: flex; gap: 8px; margin-top: 8px; }
+.jx-skill-form { display: flex; gap: 8px; margin-top: 12px; }
 .jx-skill-form .jx-input { flex: 1; min-width: 0; }
-.jx-radio { display: flex; gap: 8px; align-items: center; font-size: 14px; margin-top: 8px; }
-
-.jx-chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
-.jx-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; background: #f1f5f9; border: 1px solid #cbd5e1; font-size: 12px; }
-.jx-chip-remove { border: 0; background: transparent; cursor: pointer; color: #64748b; font-size: 14px; line-height: 1; }
-
-.jx-toolbar { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.jx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
-.jx-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-.jx-card-head { display: flex; align-items: center; gap: 10px; }
-.jx-avatar { width: 36px; height: 36px; border-radius: 8px; background: #0f172a; color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-.jx-company { display: flex; flex-direction: column; flex: 1; min-width: 0; font-size: 13px; }
-.jx-company span { color: #64748b; font-size: 11px; }
-.jx-title { margin: 0; font-size: 15px; }
-.jx-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 8px; }
-.jx-salary { font-family: ui-monospace, monospace; font-size: 13px; }
-
-.jx-badge { padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; white-space: nowrap; }
-.jx-badge--high   { background: #dcfce7; color: #166534; }
-.jx-badge--medium { background: #fef9c3; color: #854d0e; }
-.jx-badge--low    { background: #fee2e2; color: #991b1b; }
-
-.jx-tag { padding: 2px 8px; border-radius: 6px; font-size: 11px; border: 1px solid; }
-.jx-tag--matched { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
-.jx-tag--missing { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
-
-.jx-state { background: #fff; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 24px; text-align: center; color: #475569; }
-.jx-state--error { border-color: #fecaca; background: #fef2f2; color: #991b1b; }
-.jx-actions { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
-
-@media (max-width: 800px) {
-  .jx-layout { grid-template-columns: 1fr; }
-}
-
+.jx-radio { display: flex; gap: 10px; align-items: center; font-size: 14px; margin-top: 10px; padding: 10px 12px; border-radius: 12px; background: #f3f9fd; cursor: pointer; }
+.jx-radio input { accent-color: #00a5ff; }
 .jx-refresh { margin-top: 12px; width: 100%; }
+
+.jx-chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.jx-chip { display: inline-flex; align-items: center; gap: 4px; padding: 5px 6px 5px 12px; border-radius: 999px; background: #e8f7ff; color: #0070b8; font-size: 12px; font-weight: 600; }
+.jx-chip-remove { border: 0; background: transparent; cursor: pointer; color: #0070b8; font-size: 15px; line-height: 1; width: 20px; height: 20px; border-radius: 50%; }
+.jx-chip-remove:hover { background: #00a5ff; color: #fff; }
+
+.jx-toolbar { display: flex; flex-wrap: wrap; gap: 10px; background: #fff; border: 1px solid #e2edf5; border-radius: 18px; padding: 12px; box-shadow: 0 6px 24px rgba(11, 37, 64, 0.06); }
+
+.jx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+.jx-card { background: #fff; border: 1px solid #e2edf5; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; transition: transform 0.15s, box-shadow 0.15s; }
+.jx-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0, 165, 255, 0.14); border-color: #c9ecff; }
+.jx-card-head { display: flex; align-items: center; gap: 12px; }
+.jx-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #00a5ff, #0077d9); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+.jx-company { display: flex; flex-direction: column; flex: 1; min-width: 0; font-size: 14px; color: #0b2540; }
+.jx-company span { color: #64809a; font-size: 12px; }
+.jx-title { margin: 0; font-size: 16px; font-weight: 800; color: #0b2540; }
+.jx-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 8px; padding-top: 12px; border-top: 1px dashed #e2edf5; }
+.jx-salary { font-size: 14px; font-weight: 700; color: #0070b8; }
+
+/* warna badge match sesuai aturan modul: hijau >= 70, kuning 40-69, merah < 40 */
+.jx-badge { padding: 5px 10px; border-radius: 8px; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.jx-badge--high   { background: #e3f8f0; color: #0b8a61; }
+.jx-badge--medium { background: #fef6dc; color: #a16207; }
+.jx-badge--low    { background: #ffe9ed; color: #be123c; }
+
+.jx-tag { padding: 3px 9px; border-radius: 8px; font-size: 11px; font-weight: 600; }
+.jx-tag--matched { background: #e8f7ff; color: #0070b8; }
+.jx-tag--missing { background: #fff; color: #be123c; border: 1px dashed #fda4b4; }
+
+.jx-state { background: #fff; border: 2px dashed #c9ecff; border-radius: 18px; padding: 32px; text-align: center; color: #64809a; }
+.jx-state--error { border-color: #fecdd6; background: #fff1f3; color: #be123c; }
+.jx-actions { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+
+@media (max-width: 900px) {
+  .jx-layout { grid-template-columns: 1fr; }
+  .jx-sidebar { order: 0; position: static; }
+}

@@ -1,5 +1,5 @@
 import type { Application, ApplicationStatus, WorkMode } from '../types';
-import { createActivityLog, formatDateTime, formatRupiah } from './applicationHelpers';
+import { createActivityLog, formatRupiah, formatShortDateTime } from './applicationHelpers';
 
 export const STATUS_LABEL: Record<ApplicationStatus, string> = {
   WISHLIST: 'Wishlist',
@@ -72,11 +72,13 @@ export function validateTransition(
 }
 
 function describeTransition(from: ApplicationStatus, to: ApplicationStatus, p: TransitionPayload): string {
-  const base = `Pindah dari ${STATUS_LABEL[from]} ke ${STATUS_LABEL[to]}`;
-  if (to === 'APPLIED') return `${base} (CV: ${p.cvVersion.trim()})`;
-  if (to === 'INTERVIEW') return `${base} (jadwal ${formatDateTime(p.interviewDateTime)})`;
-  if (to === 'OFFER') return `${base} (${formatRupiah(p.salaryOffer)}, ${p.workMode})`;
-  return base;
+  if (to === 'APPLIED') return `Lamaran dikirim (CV: ${p.cvVersion.trim()})`;
+  if (to === 'SCREENING') {
+    return from === 'GHOSTED' ? 'Kembali ke tahap Screening (sempat Ghosted)' : 'Lolos tahap Screening';
+  }
+  if (to === 'INTERVIEW') return `Pindah ke Interview (jadwal ${formatShortDateTime(p.interviewDateTime)})`;
+  if (to === 'OFFER') return `Pindah ke Offer (${formatRupiah(p.salaryOffer)}, ${p.workMode})`;
+  return `Pindah ke ${STATUS_LABEL[to]}`;
 }
 
 // menghasilkan objek BARU (immutable), tidak mengubah objek lama

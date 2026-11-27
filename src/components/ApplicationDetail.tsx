@@ -201,7 +201,7 @@ export default function ApplicationDetail({
                               className="input"
                               value={salaryText}
                               onChange={(e) => setSalaryText(e.target.value)}
-                              placeholder="5500000"
+                              placeholder="Rp 5.500.000"
                             />
                             {errors.salaryOffer && <small className="error-text">{errors.salaryOffer}</small>}
                           </label>
