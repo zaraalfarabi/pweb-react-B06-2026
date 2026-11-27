@@ -49,3 +49,5 @@
 @media (max-width: 800px) {
   .jx-layout { grid-template-columns: 1fr; }
 }
+
+.jx-refresh { margin-top: 12px; width: 100%; }

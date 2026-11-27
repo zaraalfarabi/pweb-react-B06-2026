@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from 'react';
+import { useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from 'react';
 import type { Application, JobListing } from '../types';
 import { fetchJobs, type JobSource } from '../services/jobService';
 import { useDebounce } from '../hooks/useDebounce';
+import { useSlashFocus } from '../hooks/useSlashFocus';
 import { calculateSkillMatch } from '../utils/skillMatcher';
 import SkillProfile from './SkillProfile';
 import JobCard from './JobCard';
@@ -39,6 +40,10 @@ export default function JobExplorer({
   const debouncedKeyword = useDebounce(keyword, 400);
   const [category, setCategory] = useState('ALL');
   const [sortBy, setSortBy] = useState<JobSort>('match');
+
+  // bonus: tekan "/" untuk fokus ke kolom cari (useRef)
+  const searchRef = useRef<HTMLInputElement>(null);
+  useSlashFocus(searchRef);
 
   // ---------- fetch: useEffect + fetch + AbortController ----------
   useEffect(() => {
@@ -146,17 +151,26 @@ export default function JobExplorer({
             />
             Dataset Magang ID (Lokal)
           </label>
+          <button
+            type="button"
+            className="jx-btn jx-refresh"
+            onClick={handleRetry}
+            disabled={status === 'loading'}
+          >
+            Muat Ulang Data
+          </button>
         </section>
       </aside>
 
       <section className="jx-main">
         <div className="jx-toolbar">
           <input
+            ref={searchRef}
             className="jx-input jx-input--grow"
             type="search"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
-            placeholder="Cari posisi atau perusahaan..."
+            placeholder="Cari posisi atau perusahaan... (tekan / )"
             aria-label="Cari lowongan"
           />
           <select
